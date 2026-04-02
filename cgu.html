@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeepID — Conditions Générales d'Utilisation</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .legal { max-width: 720px; margin: 0 auto; padding: 120px 24px 80px; }
+    .legal h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    .legal .updated { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 40px; }
+    .legal h2 { font-size: 1.1rem; color: #22d3a4; margin-top: 36px; margin-bottom: 12px; }
+    .legal p, .legal li { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.8; }
+    .legal ul { list-style: disc; padding-left: 24px; }
+    .legal li { margin-bottom: 6px; }
+    .legal a { color: #22d3a4; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/"><img src="assets/logo-final.svg" alt="KeepID" class="nav-logo"></a>
+    <div class="nav-links">
+      <a href="/">Accueil</a>
+      <a href="privacy.html">Confidentialité</a>
+    </div>
+  </div>
+</nav>
+
+<div class="legal">
+  <h1>Conditions Générales d'Utilisation</h1>
+  <p class="updated">Dernière mise à jour : 2 avril 2026</p>
+
+  <h2>1. Objet</h2>
+  <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'utilisation de l'extension navigateur KeepID et du service associé. KeepID est un outil de protection de la vie privée en ligne qui permet aux utilisateurs de générer des identités fictives pour protéger leurs données personnelles lors d'inscriptions sur des sites web.</p>
+
+  <h2>2. Éditeur</h2>
+  <p>KeepID est édité par KeepID (société en cours de création).<br>
+  Contact : <a href="mailto:legal@keepid.me">legal@keepid.me</a></p>
+
+  <h2>3. Description du service</h2>
+  <p>KeepID fournit les fonctionnalités suivantes :</p>
+  <ul>
+    <li>Génération d'identités fictives uniques par site web (nom, prénom, adresse, téléphone, date de naissance)</li>
+    <li>Création d'alias email @keepid.me avec redirection vers l'email réel de l'utilisateur</li>
+    <li>Génération de mots de passe forts et uniques</li>
+    <li>Stockage local chiffré (AES-256-GCM) de toutes les données sur l'appareil de l'utilisateur</li>
+    <li>Vérification des fuites de données via l'API Have I Been Pwned (k-anonymity)</li>
+    <li>Authentification TOTP (2FA) intégrée</li>
+    <li>Protection biométrique (Touch ID / Face ID) via WebAuthn</li>
+  </ul>
+
+  <h2>4. Données personnelles (RGPD)</h2>
+  <p><strong>Données collectées par nos serveurs :</strong></p>
+  <ul>
+    <li>Le mapping entre les alias email @keepid.me et l'adresse email de redirection de l'utilisateur (nécessaire au fonctionnement du transfert d'emails)</li>
+  </ul>
+  <p><strong>Données stockées localement sur votre appareil :</strong></p>
+  <ul>
+    <li>Votre vault d'identités, chiffré en AES-256-GCM</li>
+    <li>Votre identité réelle (chiffrée)</li>
+    <li>Vos paramètres et préférences</li>
+    <li>Votre mot de passe maître (hash SHA-256 uniquement, jamais en clair)</li>
+  </ul>
+  <p><strong>Données que nous ne collectons PAS :</strong></p>
+  <ul>
+    <li>Votre nom, prénom ou adresse réels</li>
+    <li>Vos mots de passe</li>
+    <li>Votre historique de navigation</li>
+    <li>Aucune donnée de tracking ou d'analyse</li>
+  </ul>
+  <p><strong>Vos droits :</strong> Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Vous pouvez exercer ces droits directement depuis l'extension KeepID (Paramètres → Exporter mes données / Supprimer mon compte) ou en contactant <a href="mailto:privacy@keepid.me">privacy@keepid.me</a>.</p>
+
+  <h2>5. Responsabilités</h2>
+  <ul>
+    <li>KeepID fournit un outil de protection de la vie privée. L'utilisateur est seul responsable de l'usage qu'il fait des identités fictives générées.</li>
+    <li>L'utilisateur s'engage à ne pas utiliser KeepID pour des activités illégales, frauduleuses ou contraires à l'ordre public.</li>
+    <li>Les identités fictives générées ne doivent pas être utilisées pour tromper des personnes physiques, usurper une identité réelle, ou contourner des obligations légales d'identification.</li>
+    <li>KeepID ne peut être tenu responsable de la perte de données résultant de l'oubli du mot de passe maître. Aucune récupération n'est possible.</li>
+    <li>KeepID ne garantit pas la disponibilité permanente du service de redirection email.</li>
+  </ul>
+
+  <h2>6. Propriété intellectuelle</h2>
+  <p>L'extension KeepID, son code source, son design, son nom et son logo sont protégés par le droit de la propriété intellectuelle. Toute reproduction, distribution ou modification non autorisée est interdite.</p>
+
+  <h2>7. Cookies</h2>
+  <p>KeepID n'utilise aucun cookie, aucun tracker, aucun pixel de suivi. L'extension fonctionne entièrement en local sur votre appareil.</p>
+
+  <h2>8. Droit applicable</h2>
+  <p>Les présentes CGU sont soumises au droit français. En cas de litige, les tribunaux de Paris seront seuls compétents.</p>
+
+  <h2>9. Contact</h2>
+  <p>Pour toute question relative aux présentes CGU :<br>
+  <a href="mailto:legal@keepid.me">legal@keepid.me</a></p>
+  <p>Pour toute question relative à vos données personnelles :<br>
+  <a href="mailto:privacy@keepid.me">privacy@keepid.me</a></p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2026 KeepID. Tous droits réservés.</span>
+    <div class="footer-links">
+      <a href="cgu.html">CGU</a>
+      <a href="privacy.html">Confidentialité</a>
+      <a href="mailto:legal@keepid.me">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

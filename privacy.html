@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeepID — Politique de Confidentialité</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .legal { max-width: 720px; margin: 0 auto; padding: 120px 24px 80px; }
+    .legal h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    .legal .updated { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 40px; }
+    .legal h2 { font-size: 1.1rem; color: #22d3a4; margin-top: 36px; margin-bottom: 12px; }
+    .legal p, .legal li { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.8; }
+    .legal ul { list-style: disc; padding-left: 24px; }
+    .legal li { margin-bottom: 6px; }
+    .legal a { color: #22d3a4; }
+    .legal .highlight { background: rgba(34,211,164,0.08); border: 1px solid rgba(34,211,164,0.15); border-radius: 8px; padding: 16px; margin: 16px 0; }
+    .legal .highlight p { color: rgba(255,255,255,0.7); }
+    .legal .warning { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.12); border-radius: 8px; padding: 16px; margin: 16px 0; }
+    .legal .warning p { color: rgba(255,255,255,0.6); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/"><img src="assets/logo-final.svg" alt="KeepID" class="nav-logo"></a>
+    <div class="nav-links">
+      <a href="/">Accueil</a>
+      <a href="cgu.html">CGU</a>
+    </div>
+  </div>
+</nav>
+
+<div class="legal">
+  <h1>Politique de Confidentialité</h1>
+  <p class="updated">Dernière mise à jour : 2 avril 2026</p>
+
+  <div class="highlight">
+    <p><strong>En résumé :</strong> Vos données restent sur votre appareil. Nous n'y avons pas accès. Point.</p>
+  </div>
+
+  <h2>Ce que nous collectons</h2>
+  <p>Très peu. Voici la liste exhaustive :</p>
+  <ul>
+    <li><strong>Alias email @keepid.me :</strong> le mapping entre votre alias et votre adresse email de redirection est stocké sur notre serveur (hébergé sur Turso) pour permettre le transfert des emails.</li>
+  </ul>
+  <p>C'est tout. Rien d'autre ne quitte votre appareil.</p>
+
+  <h2>Ce que nous ne collectons PAS</h2>
+  <ul>
+    <li>Votre nom, prénom ou identité réelle</li>
+    <li>Votre adresse postale ou numéro de téléphone</li>
+    <li>Vos mots de passe (ni les vôtres, ni ceux générés)</li>
+    <li>Votre historique de navigation</li>
+    <li>Les sites sur lesquels vous utilisez KeepID</li>
+    <li>Aucune donnée de tracking, analytics, ou publicité</li>
+    <li>Aucun cookie</li>
+  </ul>
+
+  <h2>Où sont vos données</h2>
+  <div class="highlight">
+    <p><strong>Sur votre appareil, chiffrées.</strong></p>
+    <p>Toutes vos identités fictives, mots de passe, données personnelles et paramètres sont stockés dans le stockage local de votre navigateur (<code>chrome.storage.local</code>), chiffrés en AES-256-GCM.</p>
+    <p>La clé de chiffrement est dérivée de votre mot de passe maître via PBKDF2 (100 000 itérations, SHA-256). Elle n'est jamais stockée en clair — elle est recalculée à chaque déverrouillage et conservée en mémoire de session uniquement.</p>
+  </div>
+
+  <h2>Qui peut accéder à vos données</h2>
+  <p><strong>Personne sauf vous.</strong></p>
+  <ul>
+    <li><strong>Nos serveurs</strong> ne contiennent que le mapping alias → email de redirection. Pas vos identités, pas vos mots de passe.</li>
+    <li><strong>Votre navigateur</strong> stocke le vault chiffré. Sans votre mot de passe maître, les données sont illisibles.</li>
+    <li><strong>KeepID (l'entreprise)</strong> n'a aucun moyen technique d'accéder à votre vault. C'est le principe Zero-Knowledge.</li>
+  </ul>
+
+  <div class="warning">
+    <p><strong>⚠️ Important :</strong> Si vous oubliez votre mot de passe maître, nous ne pouvons pas récupérer vos données. Il n'existe aucune procédure de récupération. C'est le prix de la sécurité Zero-Knowledge.</p>
+  </div>
+
+  <h2>Vérification des fuites (HIBP)</h2>
+  <p>KeepID utilise l'API Have I Been Pwned pour vérifier si vos emails ou mots de passe ont été compromis dans des fuites de données. Cette vérification utilise le protocole <strong>k-anonymity</strong> : seuls les 5 premiers caractères du hash SHA-1 sont envoyés à l'API. Votre email ou mot de passe complet n'est jamais transmis.</p>
+
+  <h2>Vos droits (RGPD)</h2>
+  <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
+  <ul>
+    <li><strong>Droit d'accès :</strong> Paramètres → Exporter mes données</li>
+    <li><strong>Droit de rectification :</strong> Modifiez vos données directement dans l'extension</li>
+    <li><strong>Droit de suppression :</strong> Paramètres → Supprimer mon compte (suppression totale et irréversible)</li>
+    <li><strong>Droit à la portabilité :</strong> L'export génère un fichier JSON standard</li>
+  </ul>
+
+  <h2>Sous-traitants</h2>
+  <ul>
+    <li><strong>Turso (base de données) :</strong> héberge le mapping alias → email de redirection. Siège : San Francisco, données sur serveurs européens.</li>
+    <li><strong>Render (hébergement API) :</strong> héberge l'API de routage email. Données en transit uniquement.</li>
+  </ul>
+
+  <h2>Modifications</h2>
+  <p>Cette politique peut être mise à jour. Les modifications significatives seront signalées dans l'extension. La date de dernière mise à jour est indiquée en haut de cette page.</p>
+
+  <h2>Contact DPO</h2>
+  <p>Pour toute question relative à vos données personnelles ou pour exercer vos droits :</p>
+  <p><a href="mailto:privacy@keepid.me">privacy@keepid.me</a></p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2026 KeepID. Tous droits réservés.</span>
+    <div class="footer-links">
+      <a href="cgu.html">CGU</a>
+      <a href="privacy.html">Confidentialité</a>
+      <a href="mailto:legal@keepid.me">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
