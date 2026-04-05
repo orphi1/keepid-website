@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeepID — FAQ</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .legal { max-width: 720px; margin: 0 auto; padding: 120px 24px 80px; }
+    .legal h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    .legal .updated { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 40px; }
+    .legal a { color: #22d3a4; }
+    .faq-cat { margin-top: 36px; }
+    .faq-cat h2 { font-size: 1.1rem; color: #22d3a4; margin-bottom: 16px; }
+    details { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; margin-bottom: 8px; }
+    details summary { padding: 14px 18px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.8); cursor: pointer; list-style: none; }
+    details summary::before { content: "▸ "; color: #22d3a4; margin-right: 6px; }
+    details[open] summary::before { content: "▾ "; }
+    details p { padding: 0 18px 14px; font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin: 0; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/en/"><img src="../assets/logo-final.svg" alt="KeepID" class="nav-logo"></a>
+    <div class="nav-links">
+      <a href="/en/">Home</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</nav>
+
+<div class="legal">
+  <h1>FAQ — Frequently Asked Questions</h1>
+
+  <div class="faq-cat">
+    <h2>🔐 Security and Privacy</h2>
+
+    <details>
+      <summary>Can KeepID read my passwords?</summary>
+      <p>No. Your data is encrypted with AES-256-GCM directly on your device before being stored. Even we, as the publisher, cannot read it. This is called Zero-Knowledge.</p>
+    </details>
+
+    <details>
+      <summary>Where is my data stored?</summary>
+      <p>All your identities, passwords, and personal information are stored locally on your device, encrypted with your master password. Only the mapping between your @keepid.me alias and your forwarding email is stored on our servers (in Europe).</p>
+    </details>
+
+    <details>
+      <summary>What happens if I lose my master password?</summary>
+      <p>KeepID generates an emergency recovery kit when you create your password. This code allows you to recover access to your vault. Without this code, access is permanently lost — that's the price of Zero-Knowledge. Write it down on paper and keep it safe.</p>
+    </details>
+
+    <details>
+      <summary>Is KeepID GDPR compliant?</summary>
+      <p>Yes. KeepID is published by a French company, servers are located in Europe, and you have all your GDPR rights: access, rectification, deletion, and data portability directly from the extension.</p>
+    </details>
+
+    <details>
+      <summary>Are my @keepid.me aliases truly anonymous?</summary>
+      <p>Your aliases contain no personal information — they are randomly generated (e.g., azure-falcon-421@keepid.me). The link between your alias and your real email address is known only to KeepID and is never shared.</p>
+    </details>
+  </div>
+
+  <div class="faq-cat">
+    <h2>⚡ How It Works</h2>
+
+    <details>
+      <summary>How does email forwarding work?</summary>
+      <p>When someone sends an email to your @keepid.me alias, our servers (based in Europe) receive it and immediately forward it to your real email address. You receive the email normally in your inbox, with the alias name in the header.</p>
+    </details>
+
+    <details>
+      <summary>Can I reply to emails received through my alias?</summary>
+      <p>Not yet — this feature is planned for a future release. For now, emails are receive-only.</p>
+    </details>
+
+    <details>
+      <summary>What happens if I "Burn" an alias?</summary>
+      <p>The alias is permanently deactivated. All emails sent to that alias are automatically rejected — spam stops instantly. This action is irreversible.</p>
+    </details>
+
+    <details>
+      <summary>What is the difference between the 3 identity modes?</summary>
+      <p>🛡 Full Fictitious — everything is fake (alias email, name, address, phone). 📦 Delivery — fake email but real address and real phone to receive your packages. 📱 2FA SMS — fake email but real phone to receive SMS verification codes.</p>
+    </details>
+
+    <details>
+      <summary>Can I reuse the same identity on multiple sites?</summary>
+      <p>Yes. When signing up, the shield menu offers "♻️ Reuse an existing identity". You choose an identity you've already created, and KeepID creates a new entry for that site with the same identity.</p>
+    </details>
+  </div>
+
+  <div class="faq-cat">
+    <h2>🌐 Installation and Compatibility</h2>
+
+    <details>
+      <summary>Which browsers does KeepID support?</summary>
+      <p>KeepID works on Google Chrome and all Chromium-based browsers (Brave, Edge, Opera...). A Firefox version is planned.</p>
+    </details>
+
+    <details>
+      <summary>Does KeepID work on all websites?</summary>
+      <p>KeepID works on the vast majority of websites. It automatically detects 8 types of forms (sign-up, login, shipping...). On some sites with highly customized forms, auto-fill may be partial.</p>
+    </details>
+
+    <details>
+      <summary>How do I import my existing passwords?</summary>
+      <p>KeepID is compatible with exports from 1Password (CSV), Bitwarden (JSON), Apple Keychain (CSV), Chrome, Safari, and Firefox (CSV). Go to Settings → Import my credentials.</p>
+    </details>
+
+    <details>
+      <summary>Is KeepID available on mobile?</summary>
+      <p>Not yet. KeepID is currently available only as a Chrome extension on desktop. An iOS and Android app is planned.</p>
+    </details>
+  </div>
+
+  <div class="faq-cat">
+    <h2>💳 Account and Subscription</h2>
+
+    <details>
+      <summary>Is the free plan really free?</summary>
+      <p>Yes, with no time limit. The free plan includes 5 fictitious identities, @keepid.me aliases, the password generator, and HIBP breach checking. No credit card required.</p>
+    </details>
+
+    <details>
+      <summary>What happens if I cancel my subscription?</summary>
+      <p>You revert to the free plan. Your data is kept but premium features (unlimited identities, sync...) are no longer accessible.</p>
+    </details>
+
+    <details>
+      <summary>How do I delete my account?</summary>
+      <p>Go to Settings → Delete my account. All your data is instantly and permanently erased from your device and our servers.</p>
+    </details>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2026 KeepID. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="cgu.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:legal@keepid.me">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
