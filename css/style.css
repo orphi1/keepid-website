@@ -126,7 +126,7 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
-.nav-logo { height: 28px; }
+.nav-logo { height: 34px; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a { font-size: 14px; color: var(--w50); font-weight: 500; }
 .nav-links a:hover { color: var(--white); text-decoration: none; }
