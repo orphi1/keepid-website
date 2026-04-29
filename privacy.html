@@ -3,22 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KeepID — Politique de Confidentialité</title>
+  <title>Politique de confidentialité — KeepID</title>
+  <meta name="description" content="Politique de confidentialité de KeepID : architecture zero-knowledge, traitement des données, droits RGPD, sous-traitants.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="stylesheet" href="css/style.css">
   <style>
     .legal { max-width: 720px; margin: 0 auto; padding: 120px 24px 80px; }
     .legal h1 { font-size: 1.8rem; margin-bottom: 8px; }
     .legal .updated { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 40px; }
-    .legal h2 { font-size: 1.1rem; color: #22d3a4; margin-top: 36px; margin-bottom: 12px; }
+    .legal h2 { font-size: 1.1rem; color: #22d3a4; margin-top: 36px; margin-bottom: 12px; scroll-margin-top: 100px; }
+    .legal h3 { font-size: 0.95rem; color: rgba(255,255,255,0.85); margin-top: 20px; margin-bottom: 8px; scroll-margin-top: 100px; }
     .legal p, .legal li { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.8; }
     .legal ul { list-style: disc; padding-left: 24px; }
     .legal li { margin-bottom: 6px; }
     .legal a { color: #22d3a4; }
+    .legal code { font-size: 13px; background: rgba(255,255,255,0.05); padding: 1px 6px; border-radius: 4px; }
     .legal .highlight { background: rgba(34,211,164,0.08); border: 1px solid rgba(34,211,164,0.15); border-radius: 8px; padding: 16px; margin: 16px 0; }
-    .legal .highlight p { color: rgba(255,255,255,0.7); }
+    .legal .highlight p, .legal .highlight li { color: rgba(255,255,255,0.7); }
     .legal .warning { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.12); border-radius: 8px; padding: 16px; margin: 16px 0; }
     .legal .warning p { color: rgba(255,255,255,0.6); }
+    .legal table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+    .legal th, .legal td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); vertical-align: top; }
+    .legal th { color: rgba(255,255,255,0.85); font-weight: 600; background: rgba(255,255,255,0.03); }
+    .legal tr:last-child td { border-bottom: none; }
   </style>
 </head>
 <body>
@@ -34,76 +41,147 @@
 </nav>
 
 <div class="legal">
-  <h1>Politique de Confidentialité</h1>
-  <p class="updated">Dernière mise à jour : 25 avril 2026</p>
+  <h1>Politique de confidentialité</h1>
+  <p class="updated">Dernière mise à jour : 28 avril 2026</p>
 
   <div class="highlight">
-    <p><strong>En résumé :</strong> Vos données restent sur votre appareil. Nous n'y avons pas accès. Point.</p>
+    <p><strong>En résumé :</strong></p>
+    <ul>
+      <li>Vos données sont chiffrées localement, nous ne pouvons pas y accéder.</li>
+      <li>Aucun cookie, aucun tracking, aucun analytics.</li>
+      <li>Hébergement majoritairement en Union européenne, conforme RGPD.</li>
+      <li>Vous décidez à chaque formulaire ce que vous partagez.</li>
+    </ul>
   </div>
 
-  <h2>Ce que nous collectons</h2>
-  <p>Très peu. Voici la liste exhaustive :</p>
-  <ul>
-    <li><strong>Alias email @keepid.me :</strong> le mapping entre votre alias et votre adresse email de redirection est stocké sur notre serveur (hébergé sur Turso) pour permettre le transfert des emails.</li>
-  </ul>
-  <p>C'est tout. Rien d'autre ne quitte votre appareil.</p>
+  <h2 id="philosophie">1. Notre philosophie</h2>
+  <p>KeepID est conçu pour vous protéger de manière préventive. L'architecture est <strong>zero-knowledge</strong> : la clé de chiffrement de votre coffre est dérivée localement de votre mot de passe maître et n'est jamais stockée côté serveur. Techniquement, KeepID (l'entreprise) n'a aucun moyen d'accéder au contenu de votre vault.</p>
+  <p>À chaque formulaire, vous décidez du niveau d'information partagé : identité fictive complète, mode mixte (alias email + vraie identité), ou vraies données. Le contrôle reste entre vos mains.</p>
 
-  <h2>Ce que nous ne collectons PAS</h2>
-  <ul>
-    <li>Votre nom, prénom ou identité réelle</li>
-    <li>Votre adresse postale ou numéro de téléphone</li>
-    <li>Vos mots de passe (ni les vôtres, ni ceux générés)</li>
-    <li>Votre historique de navigation</li>
-    <li>Les sites sur lesquels vous utilisez KeepID</li>
-    <li>Aucune donnée de tracking, analytics, ou publicité</li>
-    <li>Aucun cookie</li>
-  </ul>
+  <h2 id="responsable">2. Responsable de traitement</h2>
+  <table>
+    <tr><th>Raison sociale</th><td>KEEPID SASU</td></tr>
+    <tr><th>SIREN</th><td>103 959 821</td></tr>
+    <tr><th>TVA intracommunautaire</th><td>FR31103959821</td></tr>
+    <tr><th>Siège social</th><td>229 Rue Saint Honoré, 75001 Paris, France</td></tr>
+    <tr><th>Contact DPO</th><td><a href="mailto:dpo@keepid.fr">dpo@keepid.fr</a></td></tr>
+  </table>
 
-  <h2>Où sont vos données</h2>
-  <div class="highlight">
-    <p><strong>Sur votre appareil, chiffrées.</strong></p>
-    <p>Toutes vos identités fictives, mots de passe, données personnelles et paramètres sont stockés dans le stockage local de votre navigateur (<code>chrome.storage.local</code>), chiffrés en AES-256-GCM.</p>
-    <p>La clé de chiffrement est dérivée de votre mot de passe maître via PBKDF2 (100 000 itérations, SHA-256). Elle n'est jamais stockée en clair — elle est recalculée à chaque déverrouillage et conservée en mémoire de session uniquement.</p>
-  </div>
+  <h2 id="donnees">3. Quelles données nous traitons</h2>
 
-  <h2>Qui peut accéder à vos données</h2>
-  <p><strong>Personne sauf vous.</strong></p>
+  <h3 id="donnees-toujours">3.1 Toujours collectées</h3>
   <ul>
-    <li><strong>Nos serveurs</strong> ne contiennent que le mapping alias → email de redirection. Pas vos identités, pas vos mots de passe.</li>
-    <li><strong>Votre navigateur</strong> stocke le vault chiffré. Sans votre mot de passe maître, les données sont illisibles.</li>
-    <li><strong>KeepID (l'entreprise)</strong> n'a aucun moyen technique d'accéder à votre vault. C'est le principe Zero-Knowledge.</li>
+    <li><strong>Email de redirection</strong> : utilisé uniquement pour le forwarding des emails reçus sur vos alias. Stocké sur notre infrastructure européenne avec accès restreint.</li>
+    <li><strong>Hash du mot de passe maître</strong> : dérivé via PBKDF2 (100 000 itérations, SHA-256). Le mot de passe en clair n'est jamais transmis ni stocké.</li>
+    <li><strong>Mappings alias @keepid.me → email réel</strong> : stockés sur Turso EU pour permettre le routage des emails entrants.</li>
   </ul>
 
+  <h3 id="donnees-mode">3.2 Selon le mode choisi par l'utilisateur</h3>
+  <ul>
+    <li><strong>Mode KeepID (identité fictive complète)</strong> : aucune donnée personnelle réelle n'est transmise à Mistral. Seul le HTML du formulaire est analysé.</li>
+    <li><strong>Mode mixte (alias email + vraie identité)</strong> : votre nom, prénom, téléphone et adresse réels sont transmis à Mistral pour générer un remplissage cohérent.</li>
+    <li><strong>Mode réel</strong> : l'ensemble de vos informations réelles est transmis à Mistral pour le remplissage.</li>
+  </ul>
+  <p>Dans tous les cas, le mode <strong>Zero Data Retention</strong> (ZDR) activé sur notre compte Mistral garantit l'absence de rétention au-delà du temps strict de traitement.</p>
+
+  <h3 id="donnees-jamais">3.3 Jamais collectées</h3>
+  <ul>
+    <li>Aucun analytics, aucun cookie de tracking, aucun pixel.</li>
+    <li>Aucune donnée comportementale (clics, navigation, temps passé).</li>
+    <li>Aucun contenu d'email forwardé n'est lu ni stocké par KeepID : les emails transitent via notre prestataire d'acheminement (Mailgun EU, sous DPA conforme RGPD) puis sont relayés à votre boîte réelle sans intervention humaine.</li>
+  </ul>
+
+  <h2 id="localisation">4. Où sont traitées vos données</h2>
+  <table>
+    <thead>
+      <tr><th>Sous-traitant</th><th>Rôle</th><th>Localisation</th><th>Base légale</th><th>DPA</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Scaleway</td><td>Hébergement backend</td><td>Paris, France 🇫🇷</td><td>Exécution du contrat</td><td>DPA signé</td></tr>
+      <tr><td>Turso</td><td>Base de données alias</td><td>Irlande 🇮🇪</td><td>Exécution du contrat</td><td>Conforme RGPD</td></tr>
+      <tr><td>Mailgun EU</td><td>Forwarding emails</td><td>Frankfurt, Allemagne 🇩🇪</td><td>Exécution du contrat</td><td>Conforme RGPD</td></tr>
+      <tr><td>Mistral AI</td><td>Analyse formulaires</td><td>Paris, France 🇫🇷 (principalement UE)</td><td>Exécution du contrat</td><td>DPA public + ZDR activé</td></tr>
+      <tr><td>Infomaniak</td><td>DNS</td><td>Suisse 🇨🇭</td><td>Exécution du contrat</td><td>Équivalence RGPD</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="mistral">5. Analyse IA des formulaires (Mistral)</h2>
+  <p>KeepID utilise <strong>Mistral AI</strong> pour analyser la structure HTML des formulaires web et générer le remplissage approprié à votre mode.</p>
+  <p>Le mode <strong>Zero Data Retention</strong> est activé sur notre compte Mistral. Concrètement :</p>
+  <ul>
+    <li>Aucune requête envoyée à Mistral n'est conservée au-delà du temps strict de traitement.</li>
+    <li>Aucune requête n'est utilisée pour entraîner leurs modèles.</li>
+    <li>Les requêtes sont traitées principalement sur l'infrastructure européenne de Mistral.</li>
+  </ul>
+  <p>Dans de rares cas de fallback technique, un traitement hors UE peut survenir. La garantie d'absence de stockage du ZDR s'applique dans tous les cas.</p>
+  <p>Le contenu transmis à Mistral dépend du mode choisi (voir <a href="#donnees-mode">section 3.2</a>). Les champs <code>password</code> sont systématiquement filtrés avant envoi.</p>
+
+  <h2 id="droits">6. Vos droits RGPD</h2>
+  <p>Conformément au Règlement (UE) 2016/679, vous disposez des droits suivants :</p>
+  <ul>
+    <li><strong>Droit d'accès :</strong> obtenir la liste des données vous concernant que nous traitons.</li>
+    <li><strong>Droit de rectification :</strong> corriger des données inexactes vous concernant.</li>
+    <li><strong>Droit à l'effacement :</strong> demander la suppression de vos données.</li>
+    <li><strong>Droit à la portabilité :</strong> récupérer vos données dans un format structuré (JSON).</li>
+    <li><strong>Droit d'opposition :</strong> vous opposer au traitement dans certaines conditions.</li>
+    <li><strong>Droit à la limitation :</strong> demander la suspension d'un traitement.</li>
+  </ul>
+  <p>Ces droits s'exercent directement depuis l'extension (Paramètres → Exporter / Supprimer mes données) ou par email à <a href="mailto:dpo@keepid.fr">dpo@keepid.fr</a>. Délai de réponse : <strong>1 mois maximum</strong> (article 12 RGPD).</p>
+  <p>Vous pouvez également introduire une réclamation auprès de la <strong>CNIL</strong> : <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>.</p>
+
+  <h2 id="securite">7. Sécurité</h2>
+  <ul>
+    <li>Chiffrement <strong>AES-256-GCM</strong> du vault local.</li>
+    <li>Clé dérivée du mot de passe maître via <strong>PBKDF2 (100 000 itérations)</strong> avec un sel unique par utilisateur.</li>
+    <li>Mot de passe maître jamais stocké ni transmis (architecture zero-knowledge).</li>
+    <li>Validation <strong>HMAC-SHA256</strong> de tous les webhooks entrants.</li>
+    <li>HTTPS partout (certificats Let's Encrypt automatiquement renouvelés).</li>
+    <li>2FA forte activée sur tous les comptes administrateur des services backend.</li>
+    <li>Les champs <code>&lt;input type="password"&gt;</code> sont entièrement retirés du HTML avant tout envoi au backend. Le backend n'extrait ensuite que la structure des champs (nom, type, label), jamais leur valeur, avant transmission à Mistral pour analyse.</li>
+    <li>Mode <strong>Zero Data Retention</strong> activé chez Mistral AI.</li>
+  </ul>
   <div class="warning">
-    <p><strong>⚠️ Important :</strong> Si vous oubliez votre mot de passe maître, nous ne pouvons pas récupérer vos données. Il n'existe aucune procédure de récupération. C'est le prix de la sécurité Zero-Knowledge.</p>
+    <p><strong>⚠️ Important :</strong> si vous oubliez votre mot de passe maître, nous ne pouvons techniquement pas récupérer vos données. C'est le prix de la sécurité zero-knowledge — pensez à votre code de récupération.</p>
   </div>
 
-  <h2>Vérification des fuites (HIBP)</h2>
-  <p>KeepID utilise l'API Have I Been Pwned pour vérifier si vos emails ou mots de passe ont été compromis dans des fuites de données. Cette vérification utilise le protocole <strong>k-anonymity</strong> : seuls les 5 premiers caractères du hash SHA-1 sont envoyés à l'API. Votre email ou mot de passe complet n'est jamais transmis.</p>
+  <h2 id="conservation">8. Durée de conservation</h2>
+  <table>
+    <thead>
+      <tr><th>Catégorie</th><th>Durée</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Mappings alias actifs</td><td>Tant que l'alias est actif</td></tr>
+      <tr><td>Alias supprimés (Burn)</td><td>Suppression immédiate</td></tr>
+      <tr><td>Alias en pause</td><td>Jusqu'à reprise ou suppression par l'utilisateur</td></tr>
+      <tr><td>Logs techniques backend</td><td>30 jours maximum</td></tr>
+      <tr><td>Données support (email, ticket)</td><td>3 ans après dernière interaction</td></tr>
+      <tr><td>Données comptabilité (factures abonnement)</td><td>10 ans (obligation légale française)</td></tr>
+    </tbody>
+  </table>
 
-  <h2>Vos droits (RGPD)</h2>
-  <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
-  <ul>
-    <li><strong>Droit d'accès :</strong> Paramètres → Exporter mes données</li>
-    <li><strong>Droit de rectification :</strong> Modifiez vos données directement dans l'extension</li>
-    <li><strong>Droit de suppression :</strong> Paramètres → Supprimer mon compte (suppression totale et irréversible)</li>
-    <li><strong>Droit à la portabilité :</strong> L'export génère un fichier JSON standard</li>
-  </ul>
+  <h2 id="transferts">9. Transferts hors UE</h2>
+  <p>La stack KeepID est <strong>majoritairement hébergée en Union européenne</strong>. Mistral AI traite les requêtes principalement en UE ; dans de rares cas de fallback technique, un traitement hors UE peut occasionnellement survenir, et le ZDR garantit alors l'absence de stockage. Aucun autre transfert hors UE n'est effectué.</p>
+  <p>Voir la <a href="#mistral">section 5</a> pour le détail Mistral.</p>
 
-  <h2>Sous-traitants</h2>
-  <ul>
-    <li><strong>Turso (base de données) :</strong> héberge le mapping alias → email de redirection. Siège : San Francisco, données sur serveurs européens.</li>
-    <li><strong>Scaleway (hébergement API, VPS Paris, France) :</strong> héberge l'API de routage email. Données en transit uniquement.</li>
-    <li><strong>Mailgun EU (réception et envoi d'emails, serveurs Frankfurt, Allemagne) :</strong> traite la réception et le transfert des emails entrants vers vos alias.</li>
-    <li><strong>Mistral AI (analyse de formulaires, France) :</strong> analyse la structure des formulaires web pour proposer un remplissage automatique. Aucune donnée personnelle n'est transmise — seul le HTML du formulaire est envoyé.</li>
-  </ul>
+  <h2 id="cookies">10. Cookies</h2>
+  <p>KeepID n'utilise <strong>aucun cookie de tracking</strong>, aucun pixel, aucun outil d'analyse. Le site keepid.me et l'extension fonctionnent sans cookies tiers.</p>
 
-  <h2>Modifications</h2>
-  <p>Cette politique peut être mise à jour. Les modifications significatives seront signalées dans l'extension. La date de dernière mise à jour est indiquée en haut de cette page.</p>
+  <h2 id="mineurs">11. Mineurs</h2>
+  <p>Le service n'est pas destiné aux personnes de moins de 16 ans. KeepID ne collecte pas sciemment de données concernant des mineurs. Si un parent ou tuteur constate une telle collecte, merci de contacter <a href="mailto:dpo@keepid.fr">dpo@keepid.fr</a> pour suppression immédiate.</p>
 
-  <h2>Contact DPO</h2>
+  <h2 id="violation">12. Notification de violation de données</h2>
+  <p>Conformément à l'article 34 du RGPD, en cas de violation de données susceptible d'engendrer un <strong>risque élevé</strong> pour les droits et libertés des utilisateurs, KeepID s'engage à notifier les utilisateurs concernés dans les meilleurs délais et à informer la CNIL dans les 72 heures, dans les conditions prévues à l'article 33.</p>
+
+  <h2 id="modifications">13. Modifications de la politique</h2>
+  <p>Toute modification substantielle sera notifiée par email et via une bannière dans l'extension <strong>au moins 30 jours avant son entrée en vigueur</strong>. La date de dernière mise à jour figure en haut de cette page.</p>
+
+  <h2 id="contact">14. Contact</h2>
   <p>Pour toute question relative à vos données personnelles ou pour exercer vos droits :</p>
-  <p><a href="mailto:dpo@keepid.fr">dpo@keepid.fr</a></p>
+  <ul>
+    <li><strong>Email :</strong> <a href="mailto:dpo@keepid.fr">dpo@keepid.fr</a></li>
+    <li><strong>Adresse postale :</strong> KEEPID SASU, 229 Rue Saint Honoré, 75001 Paris, France</li>
+    <li><strong>Réclamation CNIL :</strong> <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a></li>
+  </ul>
 </div>
 
 <footer>
