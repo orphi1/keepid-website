@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KeepID — FAQ</title>
+  <title>FAQ — KeepID</title>
+  <meta name="description" content="Questions fréquentes sur KeepID : sécurité zero-knowledge, IA Mistral, modes d'identité, souveraineté européenne, abonnement.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -18,6 +19,9 @@
     details summary::before { content: "▸ "; color: #22d3a4; margin-right: 6px; }
     details[open] summary::before { content: "▾ "; }
     details p { padding: 0 18px 14px; font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin: 0; }
+    details p + p { padding-top: 0; }
+    details ul { padding: 0 18px 14px 38px; font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin: 0; }
+    details li { margin-bottom: 4px; }
   </style>
 </head>
 <body>
@@ -35,33 +39,67 @@
 
 <div class="legal">
   <h1>FAQ — Questions fréquentes</h1>
+  <p class="updated">Dernière mise à jour : 28 avril 2026</p>
 
   <div class="faq-cat">
     <h2>🔐 Sécurité et confidentialité</h2>
 
     <details>
-      <summary>KeepID peut-il lire mes mots de passe ?</summary>
-      <p>Non. Vos données sont chiffrées avec AES-256-GCM directement sur votre appareil, avant d'être stockées. Même nous, en tant qu'éditeur, ne pouvons pas les lire. C'est ce qu'on appelle le Zero-Knowledge.</p>
+      <summary>1. KeepID peut-il lire mes mots de passe ?</summary>
+      <p>Non. Vos mots de passe sont chiffrés localement sur votre appareil avec une clé dérivée de votre mot de passe maître. Cette clé n'est jamais transmise ni stockée sur nos serveurs. Techniquement, KeepID (l'entreprise) n'a aucun moyen d'accéder au contenu de votre vault — c'est ce qu'on appelle une architecture zero-knowledge.</p>
     </details>
 
     <details>
-      <summary>Où sont stockées mes données ?</summary>
-      <p>Vos identités, mots de passe et informations personnelles sont chiffrés AES-256-GCM sur votre appareil. Seul le lien entre votre alias @keepid.me et votre email de redirection est stocké sur nos serveurs en Europe (Union Européenne).</p>
+      <summary>2. Comment fonctionne le chiffrement zero-knowledge ?</summary>
+      <p>Quand vous créez votre compte KeepID, vous choisissez un mot de passe maître. Ce mot de passe ne quitte jamais votre appareil. Il sert à dériver localement (via PBKDF2, 100 000 itérations) une clé qui chiffre tout votre vault en AES-256-GCM. Sur nos serveurs, on ne stocke qu'un hash de ce mot de passe, pas le mot de passe lui-même. Conséquence : même si nos serveurs étaient compromis, vos données resteraient illisibles.</p>
     </details>
 
     <details>
-      <summary>Que se passe-t-il si je perds mon mot de passe maître ?</summary>
-      <p>KeepID vous génère un kit de récupération d'urgence lors de la création de votre mot de passe. Ce code vous permet de récupérer l'accès à votre vault. Sans ce code, l'accès est définitivement perdu — c'est le prix du Zero-Knowledge. Notez-le sur papier et conservez-le précieusement.</p>
+      <summary>3. Que se passe-t-il si je perds mon mot de passe maître ?</summary>
+      <p>Personne ne peut le récupérer pour vous, pas même nous — c'est le prix de la sécurité zero-knowledge. C'est pourquoi KeepID génère à l'inscription un kit de récupération d'urgence : un code à conserver dans un endroit sûr (gestionnaire de mots de passe, papier dans un tiroir). Avec ce code, vous pouvez réinitialiser votre mot de passe maître. Sans ce code et sans votre mot de passe maître, vos données sont définitivement inaccessibles.</p>
     </details>
 
     <details>
-      <summary>KeepID est-il conforme au RGPD ?</summary>
-      <p>Oui. KeepID est édité par une société française, les serveurs sont en Europe, et vous disposez de tous vos droits RGPD : accès, rectification, suppression et portabilité de vos données directement depuis l'extension.</p>
+      <summary>4. KeepID est-il conforme au RGPD ?</summary>
+      <p>Oui. KeepID est édité par KEEPID SASU (SIREN 103 959 821), société française. Notre infrastructure est majoritairement hébergée en Union européenne (Scaleway Paris, Turso Irlande, Mailgun Frankfurt). Nous avons signé des DPA avec tous nos sous-traitants. Pour le détail, voir notre <a href="privacy.html">politique de confidentialité</a>.</p>
     </details>
 
     <details>
-      <summary>Mes alias @keepid.me sont-ils vraiment anonymes ?</summary>
-      <p>Vos alias ne contiennent aucune information personnelle — ils sont générés aléatoirement (ex: azure-falcon-421@keepid.me). Le lien entre votre alias et votre vraie adresse email n'est connu que de KeepID et n'est jamais partagé.</p>
+      <summary>5. Mes alias @keepid.me sont-ils vraiment anonymes ?</summary>
+      <p>L'alias lui-même n'expose pas votre vraie adresse email à l'extérieur. Le mapping alias → vraie adresse est stocké de manière sécurisée sur notre infrastructure européenne pour permettre le forwarding. KeepID ne lit jamais le contenu des emails forwardés. À noter : si vous utilisez votre vraie identité (nom, adresse, téléphone) sur le site d'inscription, l'alias email seul n'anonymise pas votre profil — c'est pour cela que KeepID propose des modes d'identité (voir question 9).</p>
+    </details>
+
+    <details>
+      <summary>6. Où sont stockées mes données ?</summary>
+      <ul>
+        <li><strong>Sur votre appareil (chiffré)</strong> : votre vault complet (alias, identités, mots de passe).</li>
+        <li><strong>Sur nos serveurs européens</strong> (Scaleway Paris, Turso Irlande) : le mapping de vos alias @keepid.me vers votre adresse de redirection. Rien d'autre.</li>
+        <li><strong>Jamais</strong> : votre mot de passe maître, le contenu de votre vault, votre historique de navigation.</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="faq-cat">
+    <h2>🤖 IA et formulaires</h2>
+
+    <details>
+      <summary>7. Comment KeepID remplit-il les formulaires automatiquement ?</summary>
+      <p>Quand vous arrivez sur un formulaire d'inscription, KeepID envoie la structure HTML du formulaire (sans aucun mot de passe) à Mistral AI, notre partenaire IA français. Mistral analyse les champs et indique quelle valeur correspond à quoi (nom, prénom, adresse, etc.). KeepID remplit ensuite les champs avec les données appropriées selon le mode choisi. L'opération prend 1 à 3 secondes.</p>
+    </details>
+
+    <details>
+      <summary>8. Qu'est-ce que Mistral reçoit exactement ? Et le mode Zero Data Retention ?</summary>
+      <p>Mistral reçoit uniquement la structure du formulaire (les noms et types de champs), jamais les valeurs des champs <code>&lt;input type="password"&gt;</code> qui sont systématiquement filtrés avant envoi. Selon le mode choisi, Mistral peut recevoir vos vraies infos (nom, adresse) pour générer un remplissage cohérent. Notre compte Mistral est configuré en Zero Data Retention (ZDR) : aucune requête n'est conservée par Mistral au-delà du temps de traitement, ni utilisée pour entraîner leurs modèles. Très peu de produits IA peuvent garantir ça.</p>
+    </details>
+
+    <details>
+      <summary>9. Quelle est la différence entre les 3 modes (KeepID, mixte, réel) ?</summary>
+      <ul>
+        <li><strong>🛡 Mode KeepID (par défaut)</strong> : alias email + identité fictive complète générée. Pour la majorité des sites web où votre vraie identité n'est pas nécessaire.</li>
+        <li><strong>🔀 Mode mixte</strong> : alias email + votre vraie identité (nom, prénom, téléphone, adresse). Pour les sites de transport, livraison, démarches administratives où votre vraie identité est requise mais où vous voulez protéger votre email.</li>
+        <li><strong>👤 Mode réel</strong> : toutes vos vraies infos. Pour les sites de confiance où vous assumez votre identité complète. L'alias email reste optionnel.</li>
+      </ul>
+      <p>Vous choisissez à chaque inscription, en un clic.</p>
     </details>
   </div>
 
@@ -69,58 +107,75 @@
     <h2>⚡ Fonctionnement</h2>
 
     <details>
-      <summary>Comment KeepID crée-t-il un alias dans le formulaire ?</summary>
-      <p>Quand vous arrivez sur une page d'inscription, KeepID détecte automatiquement le champ email et affiche un bouclier 🛡. Cliquez dessus, choisissez "Alias email uniquement" — un alias @keepid.me unique est généré et rempli instantanément. Vous ne quittez pas la page.</p>
+      <summary>10. Comment KeepID crée-t-il un alias dans le formulaire ?</summary>
+      <p>Quand vous cliquez sur le bouclier KeepID dans un champ email, l'extension génère un alias unique au format <code>xxxxx@keepid.me</code> et le remplit dans le champ. Cet alias est unique pour ce site et ne sera jamais réutilisé ailleurs. Vous pouvez l'utiliser pour vous inscrire normalement, et tous les emails envoyés à cet alias arriveront dans votre vraie boîte.</p>
     </details>
 
     <details>
-      <summary>Comment fonctionne le forwarding email ?</summary>
-      <p>Quand quelqu'un envoie un email à votre alias @keepid.me, nos serveurs (basés en Europe) le reçoivent et le redirigent immédiatement vers votre vraie adresse email. Vous recevez l'email normalement dans votre boîte, avec le nom de l'alias en en-tête.</p>
+      <summary>11. Comment fonctionne le forwarding email ?</summary>
+      <p>Quand un site envoie un email à votre alias <code>xxxxx@keepid.me</code>, l'email arrive sur notre infrastructure (Mailgun EU à Frankfurt), qui le relaie automatiquement vers votre vraie adresse email. Le contenu de l'email n'est ni lu, ni stocké, ni analysé par KeepID.</p>
     </details>
 
     <details>
-      <summary>🤖 Comment KeepID remplit-il les formulaires automatiquement ?</summary>
-      <p>KeepID utilise une intelligence artificielle (Mistral AI 🇫🇷) qui analyse chaque formulaire et comprend ce que chaque champ attend — prénom, nom, adresse, téléphone, date de naissance... Elle remplit tout à votre place en une seconde, avec des données fictives cohérentes. Plus elle est utilisée, plus elle devient précise.</p>
+      <summary>12. Puis-je répondre aux emails reçus via mon alias ?</summary>
+      <p>Pas encore — c'est sur notre roadmap. Aujourd'hui, KeepID protège votre inscription : votre vraie adresse n'est jamais exposée au site lors de la création de compte. Mais si vous répondez à un email transféré, votre client mail enverra la réponse depuis votre vraie adresse. La réponse anonyme via alias (reverse forwarding) est en cours de conception et arrivera dans une prochaine version.</p>
     </details>
 
     <details>
-      <summary>🗑 Puis-je récupérer un alias brûlé par erreur ?</summary>
-      <p>Oui — pendant 30 jours. Les alias brûlés sont placés dans la corbeille de l'extension. Vous pouvez les ressusciter depuis Mes comptes → Paramètres → Corbeille. Après 30 jours, la suppression est définitive.</p>
+      <summary>13. Quelle est la différence entre Pause et Brûler ?</summary>
+      <ul>
+        <li><strong>⏸ Pause</strong> : arrêt temporaire. Le spam s'arrête instantanément, mais le compte reste intact. Vous pouvez reprendre quand vous voulez. Idéal pour les sites qui spamment trop mais où vous voulez garder votre compte.</li>
+        <li><strong>🔥 Brûler</strong> : destruction définitive. Action irréversible après 30 jours en corbeille. Idéal pour les sites qui ont trahi votre confiance ou que vous n'utilisez plus.</li>
+      </ul>
+      <p>Cette distinction est unique à KeepID — les autres gestionnaires d'alias proposent uniquement la suppression.</p>
     </details>
 
     <details>
-      <summary>Puis-je répondre aux emails reçus via mon alias ?</summary>
-      <p>Pas encore — cette fonctionnalité est prévue dans une prochaine version. Pour l'instant, les emails sont en réception uniquement.</p>
+      <summary>14. Puis-je récupérer un alias brûlé par erreur ?</summary>
+      <p>Oui, pendant 30 jours. Quand vous brûlez un alias, il part en corbeille pendant 30 jours avant suppression définitive. Pendant cette période, vous pouvez le ressusciter en un clic depuis l'onglet Gestion. Après 30 jours, l'alias est supprimé définitivement et ne peut plus être récupéré.</p>
     </details>
 
     <details>
-      <summary>Que se passe-t-il si je "Burn" un alias ?</summary>
-      <p>L'alias est désactivé immédiatement — les spams s'arrêtent instantanément. Vous avez 30 jours pour le récupérer depuis la corbeille de l'extension. Passé ce délai, il est supprimé définitivement.</p>
+      <summary>15. Que se passe-t-il si je « Brûle » un alias ?</summary>
+      <p>Le forwarding est immédiatement désactivé. Tous les emails envoyés à cet alias sont rejetés à partir de ce moment. L'alias passe en corbeille pour 30 jours (récupération possible), puis est supprimé définitivement.</p>
     </details>
-
   </div>
 
   <div class="faq-cat">
-    <h2>🌐 Installation et compatibilité</h2>
+    <h2>🌐 Souveraineté et conformité</h2>
 
     <details>
-      <summary>Sur quels navigateurs fonctionne KeepID ?</summary>
-      <p>KeepID fonctionne sur Google Chrome et tous les navigateurs basés sur Chromium (Brave, Edge, Opera...). Une version Firefox est prévue.</p>
+      <summary>16. Mes données partent-elles aux USA ?</summary>
+      <p>Non, dans la grande majorité des cas. Notre infrastructure est majoritairement européenne : backend hébergé à Paris (Scaleway), base de données en Irlande (Turso), forwarding email à Frankfurt (Mailgun EU), DNS en Suisse (Infomaniak), IA en France (Mistral). Mistral peut, dans de rares cas de fallback technique, traiter une requête hors UE — mais le mode ZDR garantit qu'aucune donnée n'est stockée en dehors du temps strict de traitement.</p>
     </details>
 
     <details>
-      <summary>KeepID fonctionne-t-il sur tous les sites ?</summary>
-      <p>KeepID fonctionne sur la grande majorité des sites. Il détecte automatiquement 8 types de formulaires (inscription, connexion, livraison...). Sur certains sites avec des formulaires très personnalisés, le remplissage peut être partiel.</p>
+      <summary>17. KeepID est-il une entreprise européenne ?</summary>
+      <p>Oui. KEEPID SASU est une société française enregistrée au greffe de Paris (SIREN 103 959 821), avec siège social au 229 Rue Saint Honoré, 75001 Paris. Tous nos partenaires d'infrastructure sont européens. Cette souveraineté n'est pas un argument marketing : c'est un choix d'architecture concret, vérifiable dans notre <a href="privacy.html">politique de confidentialité</a>.</p>
+    </details>
+  </div>
+
+  <div class="faq-cat">
+    <h2>🛠 Installation et compatibilité</h2>
+
+    <details>
+      <summary>18. Sur quels navigateurs fonctionne KeepID ?</summary>
+      <p>KeepID est disponible sur Chrome, Edge, Brave, Opera et tous les navigateurs basés sur Chromium. Une version Firefox et Safari sont en préparation pour la fin 2026.</p>
     </details>
 
     <details>
-      <summary>Comment importer mes mots de passe existants ?</summary>
-      <p>KeepID est compatible avec les exports de 1Password (CSV), Bitwarden (JSON), Trousseau Apple (CSV), Chrome, Safari et Firefox (CSV). Allez dans Paramètres → Importer mes comptes existants.</p>
+      <summary>19. KeepID fonctionne-t-il sur tous les sites ?</summary>
+      <p>KeepID fonctionne sur la grande majorité des sites web qui proposent un formulaire d'inscription standard. Certains sites avec des formulaires très atypiques peuvent nécessiter une intervention manuelle. Quelques sites bloquent les domaines d'alias connus (ex: Zalando) — nous travaillons sur des solutions à ce sujet pour le futur.</p>
     </details>
 
     <details>
-      <summary>KeepID est-il disponible sur mobile ?</summary>
-      <p>Pas encore. KeepID est actuellement disponible uniquement comme extension Chrome sur ordinateur. Une app iOS et Android est prévue.</p>
+      <summary>20. Comment importer mes mots de passe existants ?</summary>
+      <p>Pas encore. L'import bulk depuis 1Password, Bitwarden ou autres gestionnaires n'est pas disponible pour l'instant. Notre approche est différente : à mesure que vous vous reconnectez à vos comptes existants, KeepID détecte le formulaire de connexion et vous propose de protéger ce compte avec un alias. La migration se fait progressivement, site par site, sans devoir tout faire d'un coup. L'import CSV reste sur notre roadmap pour les utilisateurs qui voudraient migrer en masse.</p>
+    </details>
+
+    <details>
+      <summary>21. KeepID est-il disponible sur mobile ?</summary>
+      <p>Pas encore. KeepID est actuellement disponible uniquement sur les navigateurs desktop. Une version mobile (autofill iOS et Android) est dans notre roadmap, sans date précise pour l'instant.</p>
     </details>
   </div>
 
@@ -128,18 +183,18 @@
     <h2>💳 Compte et abonnement</h2>
 
     <details>
-      <summary>Le plan gratuit est-il vraiment gratuit ?</summary>
-      <p>Oui, sans limite de durée. Le plan gratuit inclut 3 alias @keepid.me et 3 identités fictives, le générateur de mots de passe et la vérification HIBP. Aucune carte bancaire requise.</p>
+      <summary>22. Le plan gratuit est-il vraiment gratuit ?</summary>
+      <p>Oui, sans aucune carte bancaire requise. Le plan gratuit vous permet de créer 3 alias et 3 fiches d'identité, idéal pour découvrir KeepID. Si vous avez besoin de plus, vous pouvez passer au plan Personnel à 4,99€/mois (alias illimités, sync multi-appareils, Touch ID).</p>
     </details>
 
     <details>
-      <summary>Que se passe-t-il si j'annule mon abonnement ?</summary>
-      <p>Vous repassez automatiquement au plan gratuit. Vos données sont conservées. Vos alias restent actifs. Les fonctionnalités premium (alias illimités, identités illimitées, sync) ne sont plus accessibles pour les nouvelles créations.</p>
+      <summary>23. Que se passe-t-il si j'annule mon abonnement ?</summary>
+      <p>Conformément au RGPD, vous pouvez à tout moment exporter vos données (vault, alias, identités) avant toute action. Aucune donnée n'est supprimée sans votre action explicite. Les modalités précises de fin d'abonnement (durée de transition, accès en lecture seule) seront détaillées dans nos CGU lors de l'activation des plans payants.</p>
     </details>
 
     <details>
-      <summary>Comment supprimer mon compte ?</summary>
-      <p>Allez dans Paramètres → Supprimer mon compte. Toutes vos données sont effacées instantanément et définitivement de votre appareil et de nos serveurs.</p>
+      <summary>24. Comment supprimer mon compte ?</summary>
+      <p>Depuis l'extension : Paramètres → Supprimer mon compte. Toutes vos données sont supprimées de manière irréversible (vault local effacé, mappings serveur supprimés). Conformément au RGPD, cette suppression est effective sous 30 jours. Vous pouvez aussi en faire la demande par email à <a href="mailto:dpo@keepid.fr">dpo@keepid.fr</a>.</p>
     </details>
   </div>
 </div>
